@@ -1,0 +1,109 @@
+body {
+  line-height: 1.25;
+  font-family: 'Lato', Arial, sans-serif;
+}
+h1 {
+  font-size: 3em;
+}
+h2 {
+  font-size: 2em;
+}
+div.error {
+  position: relative;
+}
+div.error span {
+  background-color: #ff0000;
+  color: #FFF;
+  font-size: 1.5em;
+  padding: 5px 0 5px 2%;
+  position: absolute;
+  top: -40px;
+  width: 98%;
+}
+form {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 .9em 0;
+  max-width: 860px;
+  width: 100%;
+  text-align: left;
+  font-size: 2.5em;
+}
+div.form-inner {
+  background-color: rgba(0,0,0,0.1);
+  position: relative;
+  height: auto;
+}
+input[type="search"] {
+  display: block;
+  margin: 0;
+  padding: 0 1em 0 0.4em;
+  width: calc(100% - 2em);
+  border: none;
+  background: transparent;
+  color: rgba(0,0,0,0.8);
+  font-size: 1em;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  height: 1.7em;
+}
+button[type="submit"] {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  padding: 0;
+  width: 2em;
+  height: 1.7em;
+  border: none;
+  background: none;
+  color: rgba(0,0,0,0.4);
+  text-align: center;
+  z-index: 100;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+  transform: translateX(0);
+}
+button[type="submit"]:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0,0,0,0.9);
+}
+button[type="submit"]:focus,
+input[type="search"]:focus {
+  outline: none;
+}
+div.user {
+  text-align: center;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+table td, table th {
+  border: 1px solid #ccc;
+  padding: 0;
+  position: relative;
+}
+table td {
+  padding: 5px;
+}
+table td.name {
+  text-transform: capitalize;
+}
+table td.second-row {
+  min-width: 105px;
+}
+table td.third-row {
+  min-width: 135px;
+}
+table a {
+  display: block;
+  height: 100%;
+  padding: 5px 10px;
+  text-decoration: none;
+  width: 100%;
+}
+table a i {
+  padding: 5px;
+}
