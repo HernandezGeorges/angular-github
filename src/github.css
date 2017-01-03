@@ -26,31 +26,45 @@ h2 {
     font-size: 2em;
 }
 div.error {
-    position: relative;
-}
-div.error span {
-    background-color: #ff0000;
-    color: #FFF;
+    background: rgba(255, 35, 35, 0.85);
+    border-radius: 0 0 5px 5px;
 
-    font-size: 1.5em;
-
-    padding: 5px 0 5px 2%;
-    width: 98%;
+    display: inline-block;
+    height: 45px;
+    width: 94%;
 
     position: absolute;
-    top: -40px;
+    left: 3%;
+    top: 50px;
+
+    transition: all 0.4s ease-in;
+
+    z-index: -2;
+}
+div.error.ng-hide {
+    opacity: 0;
+}
+div.error span {
+    color: #FFF;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+
+    width: 98%;
 }
 form {
+    display: block;
+
+    font-size: 2.5em;
+    text-align: center;
+
     position: relative;
 
-    display: block;
     margin: 0 auto;
     max-width: 550px;
     padding: 0 0 .9em 0;
     width: 100%;
-
-    font-size: 2.5em;
-    text-align: center;
 }
 div.form-inner {
     background-color: #FFF;
@@ -103,6 +117,14 @@ button[type="submit"]:hover {
 button[type="submit"]:focus,
 input[type="search"]:focus {
     outline: none;
+}
+button:after {
+    content: ">";
+    font-family: 'Economica', sans-serif;
+    font-size: 6em;
+
+    line-height: 0.5em;
+    display: inline-block;
 }
 div.user {
     text-align: center;
@@ -180,13 +202,13 @@ table a i {
   -o-transition: width 350ms;
   transition: width 350ms;
 
-  background: #29d;
+  background: #000;
   position: fixed;
   z-index: 10002;
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 3px;
   border-bottom-right-radius: 1px;
   border-top-right-radius: 1px;
 }
@@ -199,10 +221,10 @@ table a i {
   top: 0;
   height: 4px;
   opacity: .45;
-  -moz-box-shadow: #29d 1px 0 6px 1px;
-  -ms-box-shadow: #29d 1px 0 6px 1px;
-  -webkit-box-shadow: #29d 1px 0 6px 1px;
-  box-shadow: #29d 1px 0 6px 1px;
+  -moz-box-shadow: #000 1px 0 6px 1px;
+  -ms-box-shadow: #000 1px 0 6px 1px;
+  -webkit-box-shadow: #000 1px 0 6px 1px;
+  box-shadow: #000 1px 0 6px 1px;
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
   border-radius: 100%;
@@ -221,8 +243,8 @@ table a i {
   height: 14px;
 
   border:  solid 4px transparent;
-  border-top-color:  #29d;
-  border-left-color: #29d;
+  border-top-color:  #000;
+  border-left-color: #000;
   border-radius: 50%;
 
   -webkit-animation: loading-bar-spinner 400ms linear infinite;

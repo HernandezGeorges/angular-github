@@ -6,6 +6,7 @@
     <link rel="icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" media="all" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300,400,500,600,700">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Economica">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js" type="text/css" media="all" />
     <link rel="stylesheet" href="src/github.css">
   </head>
@@ -18,14 +19,15 @@
           <h1>Github Account Search</h1>
       </div>
 
-      <div class="error" ng-show="showError">
-        <span>{{ error }}</span>
-      </div>
 
       <form name="searchUser" ng-submit="search(username)">
         <div class="form-inner">
           <input type="search" required placeholder="Enter a name" ng-model="username" />
-          <button class="fa fa-arrow-right" type="submit"></button>
+          <button type="submit"></button>
+          
+          <div class="error" ng-show="showError">
+            <span>{{ error }}</span>
+          </div>
         </div>
       </form>
 
