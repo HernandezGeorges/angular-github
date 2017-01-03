@@ -1,109 +1,254 @@
 body {
-  line-height: 1.25;
-  font-family: 'Lato', Arial, sans-serif;
+    background: #27ae60;
+    color: #FFF;
+    line-height: 1.25;
+    font-family: 'Roboto', Calibri, Arial, sans-serif;
 }
-h1 {
-  font-size: 3em;
+.logo {
+    display: block;
+    padding: 30px 0;
+    text-align: center;
+}
+.logo #logo {
+    height: 42px;
+    width: 42px;
+    vertical-align: middle;
+}
+.logo h1 {
+    display: inline-block;
+    font-size: 50px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 0 0 10px;
+    vertical-align: middle;
 }
 h2 {
-  font-size: 2em;
+    font-size: 2em;
 }
 div.error {
-  position: relative;
+    position: relative;
 }
 div.error span {
-  background-color: #ff0000;
-  color: #FFF;
-  font-size: 1.5em;
-  padding: 5px 0 5px 2%;
-  position: absolute;
-  top: -40px;
-  width: 98%;
+    background-color: #ff0000;
+    color: #FFF;
+
+    font-size: 1.5em;
+
+    padding: 5px 0 5px 2%;
+    width: 98%;
+
+    position: absolute;
+    top: -40px;
 }
 form {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  padding: 0 0 .9em 0;
-  max-width: 860px;
-  width: 100%;
-  text-align: left;
-  font-size: 2.5em;
+    position: relative;
+
+    display: block;
+    margin: 0 auto;
+    max-width: 550px;
+    padding: 0 0 .9em 0;
+    width: 100%;
+
+    font-size: 2.5em;
+    text-align: center;
 }
 div.form-inner {
-  background-color: rgba(0,0,0,0.1);
-  position: relative;
-  height: auto;
+    background-color: #FFF;
+
+    border-radius: 5px;
+    height: auto;
+
+    position: relative;
 }
 input[type="search"] {
-  display: block;
-  margin: 0;
-  padding: 0 1em 0 0.4em;
-  width: calc(100% - 2em);
-  border: none;
-  background: transparent;
-  color: rgba(0,0,0,0.8);
-  font-size: 1em;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-  height: 1.7em;
+    background-color: #FFF;
+    color: #6f6f6f;
+
+    border-radius: 5px 0 0 5px;
+    border: none;
+    display: block;
+    margin: 0;
+    padding: 0 15px 6px;
+    width: 85%;
+
+    font-family: inherit;
+    font-size: 1.3em;
+    font-weight: 300;
+    text-overflow: ellipsis;
 }
 button[type="submit"] {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  display: block;
-  padding: 0;
-  width: 2em;
-  height: 1.7em;
-  border: none;
-  background: none;
-  color: rgba(0,0,0,0.4);
-  text-align: center;
-  z-index: 100;
-  cursor: pointer;
-  transition: transform 0.3s, opacity 0.3s;
-  transform: translateX(0);
+    background: rgba(0,0,0,0.2);
+    color: rgba(0,0,0,0.4);
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    border-radius: 0 5px 5px 0;
+    border: none;
+    display: block;
+    height: 70px;
+    padding: 0;
+    width: 15%;
+
+    text-align: center;
+    cursor: pointer;
+
+    z-index: 100;
 }
 button[type="submit"]:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.9);
 }
 button[type="submit"]:focus,
 input[type="search"]:focus {
-  outline: none;
+    outline: none;
 }
 div.user {
-  text-align: center;
+    text-align: center;
 }
 table {
-  border-spacing: 0;
-  border-collapse: collapse;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 table td, table th {
-  border: 1px solid #ccc;
-  padding: 0;
-  position: relative;
+    border: 1px solid #ccc;
+    padding: 0;
+    position: relative;
 }
 table td {
-  padding: 5px;
+    padding: 5px;
 }
 table td.name {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 table td.second-row {
-  min-width: 105px;
+    min-width: 105px;
 }
 table td.third-row {
-  min-width: 135px;
+    min-width: 135px;
 }
 table a {
-  display: block;
-  height: 100%;
-  padding: 5px 10px;
-  text-decoration: none;
-  width: 100%;
+    display: block;
+    height: 100%;
+    padding: 5px 10px;
+    text-decoration: none;
+    width: 100%;
 }
 table a i {
-  padding: 5px;
+    padding: 5px;
+}
+
+
+
+
+/*!
+ * angular-loading-bar v0.9.0
+ * https://chieffancypants.github.io/angular-loading-bar
+ * Copyright (c) 2016 Wes Cruver
+ * License: MIT
+ */
+
+/* Make clicks pass-through */
+#loading-bar,
+#loading-bar-spinner {
+  pointer-events: none;
+  -webkit-pointer-events: none;
+  -webkit-transition: 350ms linear all;
+  -moz-transition: 350ms linear all;
+  -o-transition: 350ms linear all;
+  transition: 350ms linear all;
+}
+
+#loading-bar.ng-enter,
+#loading-bar.ng-leave.ng-leave-active,
+#loading-bar-spinner.ng-enter,
+#loading-bar-spinner.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+#loading-bar.ng-enter.ng-enter-active,
+#loading-bar.ng-leave,
+#loading-bar-spinner.ng-enter.ng-enter-active,
+#loading-bar-spinner.ng-leave {
+  opacity: 1;
+}
+
+#loading-bar .bar {
+  -webkit-transition: width 350ms;
+  -moz-transition: width 350ms;
+  -o-transition: width 350ms;
+  transition: width 350ms;
+
+  background: #29d;
+  position: fixed;
+  z-index: 10002;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-bottom-right-radius: 1px;
+  border-top-right-radius: 1px;
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+  position: absolute;
+  width: 70px;
+  right: 0;
+  top: 0;
+  height: 4px;
+  opacity: .45;
+  -moz-box-shadow: #29d 1px 0 6px 1px;
+  -ms-box-shadow: #29d 1px 0 6px 1px;
+  -webkit-box-shadow: #29d 1px 0 6px 1px;
+  box-shadow: #29d 1px 0 6px 1px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+#loading-bar-spinner {
+  display: block;
+  position: fixed;
+  z-index: 10002;
+  top: 10px;
+  left: 10px;
+}
+
+#loading-bar-spinner .spinner-icon {
+  width: 14px;
+  height: 14px;
+
+  border:  solid 4px transparent;
+  border-top-color:  #29d;
+  border-left-color: #29d;
+  border-radius: 50%;
+
+  -webkit-animation: loading-bar-spinner 400ms linear infinite;
+  -moz-animation:    loading-bar-spinner 400ms linear infinite;
+  -ms-animation:     loading-bar-spinner 400ms linear infinite;
+  -o-animation:      loading-bar-spinner 400ms linear infinite;
+  animation:         loading-bar-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes loading-bar-spinner {
+  0%   { -webkit-transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes loading-bar-spinner {
+  0%   { -moz-transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes loading-bar-spinner {
+  0%   { -o-transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes loading-bar-spinner {
+  0%   { -ms-transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes loading-bar-spinner {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
