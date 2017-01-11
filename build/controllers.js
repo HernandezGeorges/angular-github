@@ -8,7 +8,7 @@
     'use strict';
 
     angular.module('githubViewer')
-    .controller('MainController', function MainController($scope, github, $log, $anchorScroll, $location, $timeout){
+    .controller('MainController', function MainController($scope, github, localStorage, $log){
 
         var onUserComplete = function ( data ) {
             $scope.user = data;
@@ -25,9 +25,6 @@
 
         var onRepos = function ( data ) {
             $scope.repos = data;
-            // console.log(data);
-            // $location.hash("user_details"); // UI Services
-            // $anchorScroll(); // UI Services
         };
 
         var onError = function (reason) {
