@@ -1,0 +1,684 @@
+@charset "UTF-8";
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+/* variables */
+/* mixins */
+html {
+  /* force html element to take 100% of viewport */
+  height: 100%;
+}
+
+html body {
+  background: #333 url(/img/bckg.jpg);
+  background-size: 100% 100%;
+  background-repeat: repeat;
+  color: #ffffff;
+  line-height: 1.25;
+  font-family: 'Roboto', Calibri, Arial, sans-serif;
+  /* allow body to be 100% of html height */
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  /* for webkit browsers only */
+  /* Header logo */
+  /* Search form */
+  /* Search results */
+  /* closed blocks */
+}
+
+html body > div.ng-scope:nth-child(1) {
+  min-height: 500px;
+}
+
+html body .form-inner {
+  background-image: url(/img/sprt.png);
+  background-repeat: no-repeat;
+}
+
+html body input[type="search"]::-webkit-search-cancel-button {
+  background-image: url(/img/sprt.png);
+  background-repeat: no-repeat;
+}
+
+html body .logo {
+  display: block;
+  padding: 48px 0;
+  text-align: center;
+}
+
+html body .logo #logo {
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.75));
+  height: auto;
+  width: 55px;
+  vertical-align: middle;
+}
+
+html body h1 {
+  color: inherit;
+  font: italic bold 3em/1em 'Raleway', Arial, sans-serif;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 0 10px;
+}
+
+html body h1 i {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  html body h1 span {
+    display: none;
+  }
+  html body h1 i {
+    display: inline;
+  }
+}
+
+html body h2 {
+  font-size: 2em;
+}
+
+html body form {
+  display: block;
+  font-size: 2.5em;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  max-width: 599px;
+  padding: 0 0 .9em 0;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  html body form {
+    max-width: 90%;
+  }
+}
+
+html body form .form-inner {
+  background-color: #ffffff;
+  background-position: 15px 0;
+  box-shadow: 10px 16px 50px rgba(0, 0, 0, 0.5);
+  height: 66px;
+  position: relative;
+}
+
+html body form .form-inner input[type="search"] {
+  background-color: #ffffff;
+  color: #605951;
+  border: none;
+  outline: none;
+  display: block;
+  margin: 0 0 0 12%;
+  padding: 0 0 1px;
+  width: 88%;
+  font: italic 300 1em/64px 'Raleway', Arial, sans-serif;
+}
+
+html body form .form-inner input[type="search"]::-webkit-search-cancel-button {
+  background-position: -8px -89px;
+  background-color: none;
+  cursor: pointer;
+  /* Remove default */
+  -webkit-appearance: none;
+  /* Now your own custom styles */
+  height: 20px;
+  width: 20px;
+  right: 10px;
+  position: relative;
+}
+
+html body form .form-inner span.error {
+  background: rgba(227, 51, 62, 0.81);
+  color: #ffffff;
+  font: 400 .3em/2em inherit;
+  height: 2em;
+  width: 94%;
+  position: absolute;
+  left: 3%;
+  top: -23px;
+  transition: all 0.2s linear;
+  z-index: -2;
+}
+
+html body form .form-inner span.error.hide {
+  opacity: 0;
+}
+
+html body form .form-inner span.error.show {
+  opacity: 1;
+}
+
+html body .user-infos,
+html body .user-infos .user-profile,
+html body .user-infos .blurry,
+html body .user-infos img,
+html body .user-infos h2 {
+  border-top-left-radius: 5px;
+}
+
+html body .user-infos,
+html body .user-infos .user-data {
+  border-top-right-radius: 5px;
+}
+
+html body .user-infos {
+  opacity: 0;
+  box-shadow: 10px 16px 50px rgba(0, 0, 0, 0.5);
+  font-family: 'Raleway', monospace, sans-serif;
+  margin: 95px auto 0;
+  max-width: 95%;
+  position: relative;
+  transition: opacity 0.2s linear;
+}
+
+@media (max-width: 900px) {
+  html body .user-infos {
+    margin-top: 40px;
+  }
+}
+
+html body .user-infos.show {
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  html body .user-infos.show {
+    display: block;
+  }
+}
+
+html body .user-infos .user-profile,
+html body .user-infos .user-data {
+  float: left;
+  display: block;
+}
+
+html body .user-infos .user-profile {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  text-align: left;
+  width: 300px;
+  /* blurry background behind user profile */
+}
+
+@media (max-width: 900px) {
+  html body .user-infos .user-profile {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+}
+
+html body .user-infos .user-profile .blurry {
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: -160% -150%;
+  filter: blur(50px);
+  position: absolute;
+  top: 6px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  overflow: hidden;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  html body .user-infos .user-profile .blurry {
+    top: 0;
+  }
+}
+
+html body .user-infos .user-profile img {
+  background: transparent;
+  float: left;
+  height: auto;
+  margin: 0;
+  width: 300px;
+}
+
+@media (max-width: 900px) {
+  html body .user-infos .user-profile img {
+    margin-right: 5px;
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
+html body .user-infos .user-profile .infos {
+  padding-bottom: 20px;
+}
+
+html body .user-infos .user-profile .infos h2 {
+  margin: 0;
+  padding-left: 15px;
+  font-weight: 300;
+  line-height: 2em;
+}
+
+html body .user-infos .user-profile .infos .contact {
+  font-size: .9em;
+  font-weight: 400;
+  line-height: 2em;
+  display: block;
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+html body .user-infos .user-profile .infos .contact a,
+html body .user-infos .user-profile .infos .contact a:focus,
+html body .user-infos .user-profile .infos .contact a:active,
+html body .user-infos .user-profile .infos .contact a:hover {
+  color: #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+html body .user-infos .user-profile .infos .contact a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+html body .user-infos .user-profile .infos .location,
+html body .user-infos .user-profile .infos .bio {
+  font-size: .8em;
+  line-height: 2em;
+  box-sizing: border-box;
+  display: block;
+  padding: 0 15px 10px;
+}
+
+@media (max-width: 900px) {
+  html body .user-infos .user-profile .infos .location,
+  html body .user-infos .user-profile .infos .bio {
+    font-size: .75em;
+    padding-bottom: 0;
+  }
+}
+
+html body .user-infos .user-profile .infos .location {
+  line-height: 2.5em;
+}
+
+html body .user-infos .sorter {
+  background: #333;
+  font-size: .8em;
+  line-height: 37px;
+  box-sizing: content-box;
+  padding: 0 0 0 15px;
+  position: absolute;
+  top: -65px;
+  left: calc(50% - 201px);
+}
+
+@media (max-width: 900px) {
+  html body .user-infos .sorter {
+    background: transparent;
+    box-sizing: border-box;
+    width: 100% !important;
+    position: static;
+  }
+}
+
+html body .user-infos .sorter .sort {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+html body .user-infos .sorter .sort:hover {
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+html body .user-infos .user-data {
+  background: #595959;
+  font-size: .8em;
+  padding: 0;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  html body .user-infos .user-data {
+    border-top-right-radius: 0 !important;
+  }
+}
+
+html body .user-infos .user-data .dhead {
+  border-bottom-color: #707070 !important;
+  font-weight: 800;
+  text-transform: uppercase !important;
+}
+
+html body .user-infos .user-data .dhead div {
+  line-height: 40px;
+  padding: 0 15px !important;
+}
+
+html body .user-infos .user-data .dbody .name {
+  overflow-x: hidden;
+  text-transform: capitalize;
+}
+
+html body .user-infos .user-data .dbody .name a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+html body .user-infos .user-data .row {
+  border-bottom: 1px solid #505050;
+  line-height: 30px;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+html body .user-infos .user-data .row div {
+  box-sizing: border-box;
+  padding: 5px 15px;
+  vertical-align: middle;
+}
+
+html body .user-infos .user-data .row div.name {
+  padding: 0;
+  width: 20%;
+}
+
+html body .user-infos .user-data .row div.name a {
+  line-height: 40px;
+  padding-left: 15px;
+}
+
+html body .user-infos .user-data .row div.second-row, html body .user-infos .user-data .row div.stars {
+  width: 15%;
+}
+
+html body .user-infos .user-data .row div.third-row, html body .user-infos .user-data .row div.lang {
+  width: 20%;
+}
+
+html body .user-infos .user-data .row div.desc {
+  overflow: hidden;
+  width: 45%;
+}
+
+html body .user-infos .user-data .row div a,
+html body .user-infos .user-data .row div a:focus,
+html body .user-infos .user-data .row div a:active,
+html body .user-infos .user-data .row div a:hover {
+  color: #ffffff;
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+html body .user-infos .user-data {
+  animation: animPanelDataIn .2s linear;
+  animation-fill-mode: forwards;
+}
+
+html body .user-infos .close-block {
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  /**
+                * Etat fermé:
+                * hover = background du i devient blanc et i devient noir
+                * clic  = le bloc passe en premier lieu de la pile de recherche et
+                *         on affiche le tableau (en fonction du  responsive) et
+                *         le i devient un x avec un rotate du i pour arriver au x
+                *
+                * Etat ouvert:
+                * hover = background du x devient blanc et x devient noir
+                * clic =
+                */
+  transform: rotate(0deg);
+  animation: animXIn .2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+html body .user-infos .close-block:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "\d7";
+  /* use the hex value here... × */
+  font-size: 35px;
+  color: #FFF;
+  line-height: 32px;
+  text-align: center;
+}
+
+html body .user-infos.closed .user-profile {
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+html body .user-infos.closed .user-profile .blurry {
+  top: 0;
+}
+
+html body .user-infos.closed .user-profile img {
+  margin-right: 5px;
+  display: block;
+  max-width: 85px;
+  max-height: 85px;
+}
+
+html body .user-infos.closed .user-profile .infos {
+  padding-bottom: 0;
+}
+
+html body .user-infos.closed .user-profile .infos h2 {
+  line-height: 1.5em;
+}
+
+html body .user-infos.closed .user-profile .infos .contact,
+html body .user-infos.closed .user-profile .infos .location {
+  display: inline;
+}
+
+html body .user-infos.closed .user-profile .infos .location {
+  font-size: .75em;
+  padding-bottom: 0;
+}
+
+html body .user-infos.closed .user-profile .infos .bio {
+  display: none;
+}
+
+html body .user-infos.closed .sorter,
+html body .user-infos.closed .user-data {
+  display: none;
+}
+
+html body .user-infos.closed .close-block {
+  animation: animXOut .2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animPanelDataIn {
+  0% {
+    display: none;
+    opacity: 0;
+    width: 0;
+  }
+  20% {
+    display: block;
+    opacity: .2;
+    width: 20%;
+  }
+  40% {
+    display: block;
+    opacity: .4;
+    width: 40%;
+  }
+  80% {
+    display: block;
+    opacity: .8;
+    width: 80%;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@keyframes animXIn {
+  0% {
+    transform: rotate(135deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes animXOut {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(135deg);
+  }
+}
+
+#loading-bar .bar,
+#loading-bar .peg {
+  height: 8px;
+}
+
+.spinner {
+  background-color: #fff;
+  margin: 20px auto;
+  height: 30px;
+  width: 30px;
+  left: 45%;
+  border-radius: 100%;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+.spinner.show {
+  position: absolute;
+}
+
+@keyframes sk-scaleout {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

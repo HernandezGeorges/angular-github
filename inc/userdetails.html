@@ -1,52 +1,65 @@
-<div class="user" id="user_details">
-  <h2>{{ user.name }}</h2>
-  <img ng-src="{{ user.avatar_url }}" alt="" title="{{ user.name }}" />
+<div class="user user-profile" id="user_details">
+    <span class="blurry"></span><img ng-src="{{ figureSrc }}" alt="" title="{{ user.name }}" image-on-load />
+    <div class="infos">
+        <h2>{{ user.name }}</h2>
+        <span class="contact" ng-if="user.email.length">
+            <a href="mailto:{{ user.email }}">
+                {{ user.email }}
+            </a>
+        </span>
+        <span class="contact" ng-if="!user.email.length && user.blog.length">
+            <a href="{{ user.blog }}">
+                {{ newBlog }}
+            </a>
+        </span>
+        <span class="location" ng-if="user.type.length || user.location.length">
+            <span ng-if="user.type.length">{{ user.type }}<span ng-if="user.location">,&nbsp;</span></span>{{ user.location }}
+        </span>
+        <span class="bio" ng-if="user.bio.length">
+            {{ user.bio }}
+        </span>
+    </div>
 </div>
 
-<!-- <div ng-show="repos.length > 1">
-  Order:
-  <select ng-model="repoSortOrder">
-    <option value="+name">Name A-Z</option>
-    <option value="-stargazers_count">Stars N-0</option>
-    <option value="+language">Language A-Z</option>
-  </select>
-</div> -->
+<div class="sorter">
+    Sort by&nbsp;
+    <span class="sort down" ng-click="repoSortOrder='-stargazers_count'">
+        Stars
+    </span>
+    <span class="sort up" ng-click="repoSortOrder='+name'">
+        Name (a-z)
+    </span>
+    <span class="sort up" ng-click="repoSortOrder='+language'">
+        Language (a-z)
+    </span>
+    <span class="sort default" ng-click="repoSortOrder='+updated_at'">
+        Last Updated
+    </span>
+</div>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <td>
-        <a href="#name">
-          Name
-          <i class="fa fa-chevron-up right" ng-click="repoSortOrder='+name'"></i>
-          <i class="fa fa-chevron-down right" ng-click="repoSortOrder='-name'"></i>
-        </a>
-      </td>
-      <td class="second-row">
-        <a href="#stars">
-          Stars
-          <i class="fa fa-chevron-up right" ng-click="repoSortOrder='+stargazers_count'"></i>
-          <i class="fa fa-chevron-down right" ng-click="repoSortOrder='-stargazers_count'"></i>
-        </a>
-      </td>
-      <td class="third-row">
-        <a href="#lang">
-          Language
-          <i class="fa fa-chevron-up right" ng-click="repoSortOrder='+language'"></i>
-          <i class="fa fa-chevron-down right" ng-click="repoSortOrder='-language'"></i>
-        </a>
-      </td>
-      <td>
-        Description
-      </td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
-      <td class="name"><a href="{{ repo.html_url }}">{{ repo.name }}</a></td>
-      <td class="stars">{{ repo.stargazers_count }}</td>
-      <td class="lang">{{ repo.language }}</td>
-      <td class="desc">{{ repo.description }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="user-data">
+    <div class="dhead row">
+        <div class="name">
+            Name
+        </div>
+        <div class="second-row">
+            Stars
+        </div>
+        <div class="third-row">
+            Language
+        </div>
+        <div class="desc">
+            Description
+        </div>
+    </div>
+    <div class="dbody">
+        <div ng-repeat="repo in repos | orderBy:repoSortOrder" class="row">
+            <div class="name"><a href="{{ repo.html_url }}" title="{{ repo.name }}">{{ repo.name }}</a></div>
+            <div class="stars">{{ repo.stargazers_count }}</div>
+            <div class="lang">{{ repo.language }}</div>
+            <div class="desc">{{ repo.description }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="close-block" toggle-block></div>

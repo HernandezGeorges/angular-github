@@ -1,0 +1,15 @@
+/* variables */
+$linkColor: rgba(255,255,255,0.3);
+$white: #ffffff;
+
+/* mixins */
+@mixin filter($filter) {
+    -webkit-filter: $filter;
+    filter: $filter;
+}
+
+@mixin calcMix($prop, $a, $b) {
+    #{$prop}: -webkit-calc(#{$a} - #{$b});
+    #{$prop}:    -moz-calc(#{$a} - #{$b});
+    #{$prop}:         calc(#{$a} - #{$b});
+}
