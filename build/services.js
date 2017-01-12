@@ -26,23 +26,56 @@ angular.module('githubViewer')
                 getRepos: getRepos
             };
         })
-        .factory('localStorage', function($q){
+        .factory('localStore', function($q){
             'use strict';
 
             var STORAGE_ID = 'github-search';
 
             var store = {
-                results: [],
+                results: JSON.parse(localStorage.getItem(STORAGE_ID) || []),
 
                 _getFromLocalStorage: function () {
-                    return JSON.parse(localStorage.getItem(STORAGE_ID) || []);
+                    return this.results;
                 },
 
-                _saveToLocalStorage: function (results) {
-                    localStorage.setItem(STORAGE_ID, JSON.stringify(results));
+                _searchIntoLocalStorage: function ( username ) {
+                    var stored = {
+                        store: [],
+                        username: username
+                    };
+
+                    if( typeof localStorage.getItem(STORAGE_ID) === "undefined" ) {
+
+                        return stored;
+
+                    } else {
+
+                        var current,
+                            storage = JSON.parse(localStorage.getItem(STORAGE_ID));
+
+                        for ( var i=0; i < storage.length; i++ ) {
+
+                            current = storage[i].name;
+
+                            if( username.toLowerCase() === current.toLowerCase()) {
+
+                                return {
+                                    store: storage[i],
+                                    username: username
+                                };
+                            }
+                        }
+
+                        return stored;
+                    }
+
                 },
 
-                delete: function (result) {
+                _saveToLocalStorage: function ( results ) {
+                    localStorage.setItem(STORAGE_ID, JSON.stringify( results ));
+                },
+
+                delete: function ( result ) {
 
                     store.results.splice(store.results.indexOf(result), 1);
 
@@ -51,20 +84,17 @@ angular.module('githubViewer')
                     });
                 },
 
-                get: function () {
-
-                    return angular.copy(store._getFromLocalStorage(), store.results).then(function(response) {
-                        return response.data;
-                    });
+                getAllUsers: function () {
+                    return $q.when(angular.copy(store._getFromLocalStorage(), store.results));
                 },
 
-                insert: function (result) {
+                getUserByUsername: function ( username ) {
+                    return $q.when(angular.copy(store._searchIntoLocalStorage( username )));
+                },
 
-                    store.results.push(result);
-
-                    return store._saveToLocalStorage(store.results).then(function(response){
-                        return response.data;
-                    });
+                insert: function ( result ) {
+                    store.results.push( result );
+                    return $q.when( store._saveToLocalStorage( store.results ) );
                 }
             };
 

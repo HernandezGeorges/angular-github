@@ -149,7 +149,9 @@ html {
                     background: rgba(227, 51, 62, 0.81);
                     color: $white;
 
-                    font: 400 .3em/2em inherit;
+                    font-weight: 400;
+                    font-size: .3em;
+                    line-height: 2em;
 
                     height: 2em;
                     width: 94%;

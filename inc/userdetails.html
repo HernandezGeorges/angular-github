@@ -1,5 +1,5 @@
 <div class="user user-profile" id="user_details">
-    <span class="blurry"></span><img ng-src="{{ figureSrc }}" alt="" title="{{ user.name }}" image-on-load />
+    <span class="blurry"></span><img ng-src="{{ user.figureSrc }}" alt="" title="{{ user.name }}" image-on-load />
     <div class="infos">
         <h2>{{ user.name }}</h2>
         <span class="contact" ng-if="user.email.length">
@@ -9,7 +9,7 @@
         </span>
         <span class="contact" ng-if="!user.email.length && user.blog.length">
             <a href="{{ user.blog }}">
-                {{ newBlog }}
+                {{ user.newBlog }}
             </a>
         </span>
         <span class="location" ng-if="user.type.length || user.location.length">
