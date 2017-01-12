@@ -661,7 +661,7 @@ html body .user-infos.closed .close-block {
   height: 8px;
 }
 
-.spinner {
+#spinner {
   background-color: #fff;
   margin: 20px auto;
   height: 30px;
@@ -671,7 +671,7 @@ html body .user-infos.closed .close-block {
   animation: sk-scaleout 1.0s infinite ease-in-out;
 }
 
-.spinner.show {
+#spinner.show {
   position: absolute;
 }
 

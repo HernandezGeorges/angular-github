@@ -8,11 +8,10 @@
     'use strict';
 
     angular.module('githubViewer')
-    .controller('MainController', function MainController($scope, github, localStore, $log){
-
-        // console.log(localStorage);
+    .controller('MainController', function MainController($scope, github, localStore){
 
         var onUserComplete = function ( data ) {
+
             $scope.user             = {};
             $scope.user.name        = data.name;
             $scope.user.login       = data.login;
@@ -31,16 +30,13 @@
             $scope.error        = "";
             $scope.showError    = false;
 
-            // console.log('DATA USER ::', data);
-
             github.getRepos( data ).then( onRepos, onError );
         };
 
         var onRepos = function ( data ) {
-            // console.log('DATA REPOS ::', data);
+
             $scope.repos            = [];
             for(var i=0; i < data.length; i++ ) {
-                // console.log(data[i]);
                 $scope.repos[i]                     = {};
                 $scope.repos[i].name                = data[i].name;
                 $scope.repos[i].stargazers_count    = data[i].stargazers_count;
@@ -49,7 +45,6 @@
                 $scope.repos[i].updated_at          = data[i].updated_at;
             }
 
-
             // create the new result object
             var result = {
                 name: $scope.user.login,
@@ -57,21 +52,18 @@
                 repos: $scope.repos
             };
 
-            // console.log(result);
-            // console.log(result);
-            // console.log(localStorage);
-            // console.log('REPOS RETRIEVED ::',result);
             // persist the result in local storage
-            localStore.insert( result );
-                            // .then(function success() {
-                                // $scope.message = localStorage.getAll();
-                                // console.log(localStorage.getAll());
-                            // });
+            localStore.insert( result )
+                            .then(function success() {
+                                $scope.searchLoaded = true;
+                            });
         };
 
         var onError = function ( reason ) {
             $scope.error        = "Données non trouvées !";
             $scope.showError    = true;
+            $scope.searchLoaded = true;
+            return;
         };
 
         var onLocalUser = function ( local ) {
@@ -85,9 +77,11 @@
             // else set scope user datas
             $scope.user     = local.store.user;
             $scope.repos    = local.store.repos;
+            $scope.searchLoaded = true;
         };
 
         $scope.search = function  ( username ) {
+            $scope.searchLoaded = false;
             localStore.getUserByUsername( username ).then( onLocalUser );
         };
 

@@ -25,7 +25,7 @@
 
                 <span ng-class="{true: 'error show', false: 'error hide'}[showError]">{{ error }}</span>
 
-                <span class="spinner"></span>
+                <span id="spinner" ng-class="{true: 'hide', false: 'show'}[searchLoaded]"></span>
             </div>
         </form>
 

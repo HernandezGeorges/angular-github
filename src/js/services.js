@@ -85,7 +85,7 @@ angular.module('githubViewer')
                 },
 
                 getAllUsers: function () {
-                    return $q.when(angular.copy(store._getFromLocalStorage(), store.results));
+                    return $q.when(store._getFromLocalStorage());
                 },
 
                 getUserByUsername: function ( username ) {

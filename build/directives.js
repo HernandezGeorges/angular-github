@@ -25,7 +25,7 @@
                     if (e.which == 13) {
 
                         // show spinner on search load
-                        handleLoader();
+                        // handleLoader();
 
                         // trouver si dans la liste de recherche
                         //          le block avec le terme recherché n'existe pas déjà

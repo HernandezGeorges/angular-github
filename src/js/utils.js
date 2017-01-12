@@ -6,24 +6,11 @@
 function toggleVisibility(element, classString) {
     var c = classString || 'show';
     if (element.classList.contains(c)) {
-        // console.log('toggle out :: ', c);
         element.classList.remove(c);
     } else {
-        // console.log('toggle in :: ', c);
         element.classList.add(c);
     }
 }
-
-
-
-/**
- * Show/Hide spinner on any action
- */
-function handleLoader() {
-    var spinner = document.querySelector('.spinner');
-    toggleVisibility(spinner);
-}
-
 
 
 /**
@@ -37,11 +24,7 @@ function onImageLoaded(image) {
     // show user info block
     var card = document.querySelector('.user-infos');
     toggleVisibility(card);
-
-    // hide the spinner
-    handleLoader();
 }
-
 
 
 /**
@@ -52,7 +35,6 @@ function toggleInfoBlock(element) {
     var block = getClosest(element.parentNode, '.user-infos');
     toggleVisibility(block, 'closed');
 }
-
 
 
 /**
