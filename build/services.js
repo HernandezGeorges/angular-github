@@ -33,7 +33,7 @@ angular.module('githubViewer')
 
             var store = {
 
-                results: JSON.parse(localStorage.getItem(STORAGE_ID) || []),
+                results: (JSON.parse(localStorage.getItem(STORAGE_ID)) || []),
 
                 _getFromLocalStorage: function () {
                     return this.results;
@@ -47,15 +47,15 @@ angular.module('githubViewer')
                     };
 
                     // if no localStorage found return default storage obj
-                    if ( typeof localStorage.getItem(STORAGE_ID) === "undefined" ) return stored;
+                    if ( typeof localStorage.getItem(STORAGE_ID) === "undefined" || localStorage.length === 0 ) return stored;
 
                     var current,
                         storage = JSON.parse(localStorage.getItem(STORAGE_ID)),
                         i = storage.length,
                         n = username.toLowerCase();
 
-                    // move an index while not 0 and username not found in localStorage
-                    while( --i >= 0 && n !== storage[i].name.toLowerCase() ) {}
+                    // move inside indexes while not 0 and username not found in localStorage
+                    while( --i >= 1 && n !== storage[i].name.toLowerCase() ) {}
 
                     // return complete user obj and repos or default storage
                     return ( storage[i].name.toLowerCase() === username.toLowerCase() ?

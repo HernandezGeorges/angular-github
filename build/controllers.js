@@ -27,15 +27,13 @@
                 $scope.user.newBlog = blog.replace(/.*?:\/\//g, "");
             }
 
-            $scope.error        = "";
-            $scope.showError    = false;
-
             github.getRepos( data ).then( onRepos, onError );
         };
 
         var onRepos = function ( data ) {
 
-            $scope.repos            = [];
+            $scope.repos = [];
+
             for(var i=0; i < data.length; i++ ) {
                 $scope.repos[i]                     = {};
                 $scope.repos[i].name                = data[i].name;
@@ -55,14 +53,19 @@
             // persist the result in local storage
             localStore.insert( result )
                             .then(function success() {
-                                $scope.searchLoaded = true;
+                                $scope.error.message    = "";
+                                $scope.searching.error  = false;
+                                $scope.searching.loaded = false;
+                                $scope.searching.ok     = true;
                             });
         };
 
         var onError = function ( reason ) {
-            $scope.error        = "Données non trouvées !";
-            $scope.showError    = true;
-            $scope.searchLoaded = true;
+            $scope.error.message    = "Données non trouvées !";
+            $scope.searching.error  = true;
+            $scope.searching.loaded = false;
+            $scope.searching.ok     = false;
+
             return;
         };
 
@@ -75,17 +78,24 @@
             }
 
             // else set scope user datas
-            $scope.user     = local.store.user;
-            $scope.repos    = local.store.repos;
-            $scope.searchLoaded = true;
+            $scope.user             = local.store.user;
+            $scope.repos            = local.store.repos;
+            $scope.searching.error  = false;
+            $scope.searching.loaded = false;
+            $scope.searching.ok     = true;
         };
 
         $scope.search = function  ( username ) {
-            $scope.searchLoaded = false;
+            $scope.searching.loaded = true;
+            $scope.searching.ok     = false;
             localStore.getUserByUsername( username ).then( onLocalUser );
         };
 
-        $scope.username         = "angular";
+        $scope.error            = {};
+        $scope.searching        = {};
+        $scope.searching.error  = false;
+        $scope.searching.loaded = false;
+        $scope.searching.ok     = false;
         $scope.bigTitle         = "Github Account Search";
         $scope.repoSortOrder    = "-stargazers_count";
 

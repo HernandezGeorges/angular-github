@@ -266,7 +266,6 @@ html body .user-infos .user-data {
 }
 
 html body .user-infos {
-  opacity: 0;
   box-shadow: 10px 16px 50px rgba(0, 0, 0, 0.5);
   font-family: 'Raleway', monospace, sans-serif;
   margin: 95px auto 0;
@@ -279,6 +278,11 @@ html body .user-infos {
   html body .user-infos {
     margin-top: 40px;
   }
+}
+
+html body .user-infos.hide {
+  display: none;
+  opacity: 0;
 }
 
 html body .user-infos.show {
@@ -616,21 +620,6 @@ html body .user-infos.closed .close-block {
     display: none;
     opacity: 0;
     width: 0;
-  }
-  20% {
-    display: block;
-    opacity: .2;
-    width: 20%;
-  }
-  40% {
-    display: block;
-    opacity: .4;
-    width: 40%;
-  }
-  80% {
-    display: block;
-    opacity: .8;
-    width: 80%;
   }
   100% {
     opacity: 1;

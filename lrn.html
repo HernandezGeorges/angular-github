@@ -21,15 +21,15 @@
 
         <form name="searchUser" ng-submit="search(username)">
             <div class="form-inner">
-                <input type="search" required placeholder="Type a name and hit Enter" ng-model="username" on-search-load />
+                <input type="search" required placeholder="Type a name and hit Enter" ng-model="username" onfocus="this.value='';" on-search-load />
 
-                <span ng-class="{true: 'error show', false: 'error hide'}[showError]">{{ error }}</span>
+                <span ng-class="{true: 'error show', false: 'error hide'}[searching.error]">{{ error.message }}</span>
 
-                <span id="spinner" ng-class="{true: 'hide', false: 'show'}[searchLoaded]"></span>
+                <span id="spinner"  ng-class="{true: 'show', false: 'hide'}[searching.loaded]"></span>
             </div>
         </form>
 
-        <div ng-include="'inc/userdetails.html'" ng-show="user" class="user-infos"></div>
+        <div ng-include="'inc/userdetails.html'" ng-show="user" ng-class="{true: 'user-infos show', false: 'user-infos hide'}[searching.ok]" user-details></div>
 
     </div>
 

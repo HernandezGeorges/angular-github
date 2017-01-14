@@ -3,13 +3,9 @@
  * @param  {obj} element        An html element
  * @param  {str} classString    An optional class to add or remove (default=undefined=show)
  */
-function toggleVisibility(element, classString) {
+function toggleClass( el, classString ) {
     var c = classString || 'show';
-    if (element.classList.contains(c)) {
-        element.classList.remove(c);
-    } else {
-        element.classList.add(c);
-    }
+    return el.classList.contains(c) ? el.classList.remove(c) : el.classList.add(c);
 }
 
 
@@ -17,13 +13,13 @@ function toggleVisibility(element, classString) {
  * Set of actions to execute on image loading/loaded
  * @param  {obj} image      image element on user profile
  */
-function onImageLoaded(image) {
+function onImageLoaded( image ) {
     // add backgroung image to block blurry
     image.previousSibling.style.backgroundImage = "url('" + image.src + "')";
 
-    // show user info block
-    var card = document.querySelector('.user-infos');
-    toggleVisibility(card);
+    // remove focus from input
+    var search = document.querySelector( 'input[type="search"]' );
+    search.blur();
 }
 
 
@@ -31,9 +27,9 @@ function onImageLoaded(image) {
  * Minimize/Maximize a search block
  * @param  {obj} element    html close/open button in a block containing user infos
  */
-function toggleInfoBlock(element) {
+function toggleInfoBlock( element ) {
     var block = getClosest(element.parentNode, '.user-infos');
-    toggleVisibility(block, 'closed');
+    toggleClass( block, 'closed' );
 }
 
 

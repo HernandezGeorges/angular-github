@@ -7,11 +7,22 @@
     'use strict';
 
     angular.module('githubViewer')
+    .directive('userDetails', function() {
+        return {
+            controller: ['$scope', function ($scope) {
+                this.setSearchDone = function() {
+                   $scope.searching.ok = true;
+                   $scope.searching.loaded = false;
+               };
+           }]
+        };
+    })
     .directive('imageOnLoad', function() {
         return {
-            restrict: 'A',
-            link: function(scope, element, attrs) {
+            require: '^^userDetails',
+            link: function(scope, element, attrs, userDetailsCtrl) {
                 element.bind('load', function() {
+                    userDetailsCtrl.setSearchDone();
                     onImageLoaded(element[0]);
                 });
             }
@@ -19,13 +30,9 @@
     })
     .directive('onSearchLoad', function() {
         return {
-            restrict: 'A',
-            link: function(scope, element, attrs) {
+            link: function(scope, element, attrs, userDetailsCtrl) {
                 element.on('keydown', function(e) {
                     if (e.which == 13) {
-
-                        // show spinner on search load
-                        // handleLoader();
 
                         // trouver si dans la liste de recherche
                         //          le block avec le terme recherché n'existe pas déjà
@@ -56,11 +63,7 @@
                         //      qui ne se trouve pas dans un .user-infos.closed
                         // pour ranger la recherche effectuée en haut de la pile de recherche
 
-
                         // au lieu de supprimer les classes show et close, il faut ajouter le bloc à la pile
-                        var card = document.querySelector('.user-infos');
-                        card.classList.remove('show');
-                        // card.classList.remove('closed');
                     }
                 });
             }
@@ -68,7 +71,6 @@
     })
     .directive('toggleBlock', function() {
         return {
-            restrict: 'A',
             link: function(scope, element, attrs) {
                 element.on('click', function(e) {
                     toggleInfoBlock(this);

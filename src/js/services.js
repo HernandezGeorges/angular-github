@@ -32,42 +32,39 @@ angular.module('githubViewer')
             var STORAGE_ID = 'github-search';
 
             var store = {
-                results: JSON.parse(localStorage.getItem(STORAGE_ID) || []),
+
+                results: (JSON.parse(localStorage.getItem(STORAGE_ID)) || []),
 
                 _getFromLocalStorage: function () {
                     return this.results;
                 },
 
                 _searchIntoLocalStorage: function ( username ) {
+                    // set default storage obj
                     var stored = {
                         store: [],
                         username: username
                     };
 
-                    if( typeof localStorage.getItem(STORAGE_ID) === "undefined" ) {
+                    // if no localStorage found return default storage obj
+                    if ( typeof localStorage.getItem(STORAGE_ID) === "undefined" || localStorage.length === 0 ) return stored;
 
-                        return stored;
+                    var current,
+                        storage = JSON.parse(localStorage.getItem(STORAGE_ID)),
+                        i = storage.length,
+                        n = username.toLowerCase();
 
-                    } else {
+                    // move inside indexes while not 0 and username not found in localStorage
+                    while( --i >= 1 && n !== storage[i].name.toLowerCase() ) {}
 
-                        var current,
-                            storage = JSON.parse(localStorage.getItem(STORAGE_ID));
-
-                        for ( var i=0; i < storage.length; i++ ) {
-
-                            current = storage[i].name;
-
-                            if( username.toLowerCase() === current.toLowerCase()) {
-
-                                return {
-                                    store: storage[i],
-                                    username: username
-                                };
-                            }
-                        }
-
-                        return stored;
-                    }
+                    // return complete user obj and repos or default storage
+                    return ( storage[i].name.toLowerCase() === username.toLowerCase() ?
+                        {
+                            store: storage[i],
+                            username: username
+                        } :
+                        stored
+                    );
 
                 },
 
