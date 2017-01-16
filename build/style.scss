@@ -241,6 +241,34 @@ html {
                     width: 100%;
                 }
 
+                .wait {
+
+                    height: 300px;
+                    width: 100%;
+
+                    position: relative;
+                    top: 20px;
+                    left: 42%;
+
+                    &.hide {
+                        visibility: hidden;
+                    }
+
+                    &:before {
+                        content: '';
+                        box-sizing: border-box;
+                        position: absolute;
+                        width: 4em;
+                        height: 4em;
+                        margin-top: -10px;
+                        margin-left: -10px;
+                        border-radius: 50%;
+                        border-top: 2px solid $white;
+                        border-right: 2px solid transparent;
+                        animation: waiting .6s linear infinite;
+                    }
+                }
+
                 /* blurry background behind user profile */
                 .blurry {
                     background-repeat: repeat;
@@ -585,6 +613,9 @@ html {
     }
 }
 
+@keyframes waiting {
+  to {transform: rotate(360deg);}
+}
 
 @keyframes animPanelDataIn {
     0% {

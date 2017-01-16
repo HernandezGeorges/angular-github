@@ -1,4 +1,5 @@
 <div class="user user-profile" id="user_details">
+    <span ng-class="{true: 'wait show', false: 'wait hide'}[searching.loaded]"></span>
     <span class="blurry"></span><img ng-src="{{ user.figureSrc }}" alt="" title="{{ user.name }}" image-on-load />
     <div class="infos">
         <h2>{{ user.name }}</h2>
