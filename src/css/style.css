@@ -109,7 +109,7 @@ html {
 }
 
 html body {
-  background: #333 url(img/bckg.jpg);
+  background: #333 url(../../img/bckg.jpg);
   background-size: 100% 100%;
   background-repeat: repeat;
   color: #ffffff;
@@ -131,12 +131,12 @@ html body > div.ng-scope:nth-child(1) {
 }
 
 html body .form-inner {
-  background-image: url(img/sprt.png);
+  background-image: url(../../img/sprt.png);
   background-repeat: no-repeat;
 }
 
 html body input[type="search"]::-webkit-search-cancel-button {
-  background-image: url(img/sprt.png);
+  background-image: url(../../img/sprt.png);
   background-repeat: no-repeat;
 }
 
