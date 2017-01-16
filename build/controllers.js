@@ -98,6 +98,7 @@
         $scope.searching.ok     = false;
         $scope.bigTitle         = "Github Account Search";
         $scope.repoSortOrder    = "-stargazers_count";
+        $scope.localRepos       = localStore.getAllUsers();
 
     });
 })();
