@@ -297,9 +297,7 @@ html {
 
                     float: left;
 
-                    height: auto;
                     margin: 0;
-                    width: 300px;
 
                     @media (max-width:900px) {
                         margin-right: 5px;
@@ -507,12 +505,12 @@ html {
             .close-block {
                 cursor: pointer;
 
-                height: 35px;
-                width: 35px;
+                height: 25px;
+                width: 25px;
 
                 position: absolute;
                 right: 5px;
-                top: 2px;
+                top: 5px;
 
                 /**
                 * Etat fermé:
@@ -523,12 +521,17 @@ html {
                 *
                 * Etat ouvert:
                 * hover = background du x devient blanc et x devient noir
-                * clic =
+                * clic = a completer plus tard car je ne sais pas trop encore
                 */
 
                 transform: rotate(0deg);
                 animation: animXIn .2s ease-in-out;
                 animation-fill-mode: forwards;
+
+                &:hover {
+                    background-color: #494949;
+                    border-radius: 50%;
+                }
 
                 &:after {
                     position: absolute;
@@ -541,10 +544,10 @@ html {
                     // content: "\22BF"; /* use the hex value here... ⊿ */
                     // content: "\25B8"; /* use the hex value here...▸ */
                     // content: "\0456"; /* use the hex value here... і */
-                    font-size: 35px;
+                    font-size: 25px;
 
                     color: #FFF;
-                    line-height: 32px;
+                    line-height: 22px;
                     text-align: center;
                 }
             }
@@ -621,11 +624,13 @@ html {
     0% {
         display: none;
         opacity: 0;
-        width: 0;
+        // width: 0;
+        height: 0;
     }
     100% {
         opacity: 1;
-        width: 100%;
+        // width: 100%;
+        height: 100%;
     }
 }
 

@@ -3,20 +3,21 @@
   "version": "0.0.1",
   "description": "Perform searches on github users' and retrieve their public repositories and projects",
   "keywords": [
-      "Angular",
-      "Github",
-      "API",
-      "Search",
-      "Javascript"
+    "Angular",
+    "Github",
+    "API",
+    "Search",
+    "Javascript"
   ],
   "repository": "https://github.com/HernandezGeorges/angular-github",
   "author": "Hernandez Georges",
   "license": "MIT",
   "dependencies": {
-      "angular": "~1.5.0",
-      "angular-loading-bar": "~0.8.0"
+    "angular": "^1.5.11",
+    "angular-loading-bar": "~0.8.0"
   },
   "devDependencies": {
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.5.2",
@@ -24,9 +25,14 @@
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.0.0",
-    "gulp-sourcemaps": "^1.5.2",
+    "gulp-sourcemaps": "^1.12.1",
     "gulp-uglify": "^1.1.0",
-    "gulp-uglifycss": "^1.0.4",
-    "del": "^2.2.2"
+    "gulp-uglifycss": "^1.0.9",
+    "kss": "^3.0.0-beta.18",
+    "nucleus-styleguide": "^1.1.1",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "space": 4
   }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="githubViewer">
+<html data-ng-app="githubViewer">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
@@ -12,24 +12,28 @@
 </head>
 <body>
 
-    <div ng-controller="MainController">
+    <div data-ng-controller="MainController">
 
         <div class="logo">
             <img id="logo" src="img/social-github.png" alt="Github">
             <h1>Github A<span>ccount</span><i>.</i> S<span>earch</span><i>.</i></h1>
         </div>
 
-        <form name="searchUser" ng-submit="search(username)">
+        <form name="searchUser" data-ng-submit="search(username)">
             <div class="form-inner">
-                <input type="search" required placeholder="Type a name and hit Enter" ng-model="username" onfocus="this.value='';" on-search-load />
+                <input type="search" required placeholder="Type a name and hit Enter" data-ng-model="username" onfocus="this.value='';" on-search-load />
 
-                <span ng-class="{true: 'error show', false: 'error hide'}[searching.error]">{{ error.message }}</span>
+                <span data-ng-class="{true: 'error show', false: 'error hide'}[searching.error]">{{ error.message }}</span>
 
-                <span id="spinner"  ng-class="{true: 'show', false: 'hide'}[searching.loaded]"></span>
+                <span id="spinner"  data-ng-class="{true: 'show', false: 'hide'}[searching.loaded]"></span>
             </div>
         </form>
 
-        <div ng-include="'inc/userdetails.html'" ng-show="user" ng-class="{true: 'user-infos show', false: 'user-infos hide'}[searching.ok]" user-details></div>
+        <div data-ng-include="'inc/userdetails.html'"
+            data-ng-show="user"
+            data-ng-class="{true: 'user-infos show', false: 'user-infos hide'}[searching.ok]"
+            user-details>
+        </div>
 
     </div>
 

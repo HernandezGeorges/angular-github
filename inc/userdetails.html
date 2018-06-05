@@ -1,21 +1,21 @@
 <div class="user user-profile" id="user_details">
-    <span class="blurry"></span><img ng-src="{{ user.figureSrc }}" alt="" title="{{ user.name }}" image-on-load />
+    <span class="blurry"></span><img data-ng-src="{{ user.figureSrc }}" alt="" title="{{ user.name }}" height="300" width="300" image-on-load />
     <div class="infos">
         <h2>{{ user.name }}</h2>
-        <span class="contact" ng-if="user.email.length">
+        <span class="contact" data-ng-if="user.email.length">
             <a href="mailto:{{ user.email }}">
                 {{ user.email }}
             </a>
         </span>
-        <span class="contact" ng-if="!user.email.length && user.blog.length">
+        <span class="contact" data-ng-if="!user.email.length && user.blog.length">
             <a href="{{ user.blog }}">
                 {{ user.newBlog }}
             </a>
         </span>
-        <span class="location" ng-if="user.type.length || user.location.length">
-            <span ng-if="user.type.length">{{ user.type }}<span ng-if="user.location">,&nbsp;</span></span>{{ user.location }}
+        <span class="location" data-ng-if="user.type.length || user.location.length">
+            <span data-ng-if="user.type.length">{{ user.type }}<span data-ng-if="user.location">,&nbsp;</span></span>{{ user.location }}
         </span>
-        <span class="bio" ng-if="user.bio.length">
+        <span class="bio" data-ng-if="user.bio.length">
             {{ user.bio }}
         </span>
     </div>
@@ -23,16 +23,16 @@
 
 <div class="sorter">
     Sort by&nbsp;
-    <span class="sort down" ng-click="repoSortOrder='-stargazers_count'">
+    <span class="sort down" data-ng-click="repoSortOrder='-stargazers_count'">
         Stars
     </span>
-    <span class="sort up" ng-click="repoSortOrder='+name'">
+    <span class="sort up" data-ng-click="repoSortOrder='+name'">
         Name (a-z)
     </span>
-    <span class="sort up" ng-click="repoSortOrder='+language'">
+    <span class="sort up" data-ng-click="repoSortOrder='+language'">
         Language (a-z)
     </span>
-    <span class="sort default" ng-click="repoSortOrder='+updated_at'">
+    <span class="sort default" data-ng-click="repoSortOrder='+updated_at'">
         Last Updated
     </span>
 </div>
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="dbody">
-        <div ng-repeat="repo in repos | orderBy:repoSortOrder" class="row">
+        <div data-ng-repeat="repo in repos | orderBy:repoSortOrder" class="row">
             <div class="name"><a href="{{ repo.html_url }}" title="{{ repo.name }}">{{ repo.name }}</a></div>
             <div class="stars">{{ repo.stargazers_count }}</div>
             <div class="lang">{{ repo.language }}</div>

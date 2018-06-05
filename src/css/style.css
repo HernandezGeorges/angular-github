@@ -369,9 +369,7 @@ html body .user-infos .user-profile .blurry {
 html body .user-infos .user-profile img {
   background: transparent;
   float: left;
-  height: auto;
   margin: 0;
-  width: 300px;
 }
 
 @media (max-width: 900px) {
@@ -557,11 +555,11 @@ html body .user-infos .user-data {
 
 html body .user-infos .close-block {
   cursor: pointer;
-  height: 35px;
-  width: 35px;
+  height: 25px;
+  width: 25px;
   position: absolute;
   right: 5px;
-  top: 2px;
+  top: 5px;
   /**
                 * Etat fermé:
                 * hover = background du i devient blanc et i devient noir
@@ -571,11 +569,16 @@ html body .user-infos .close-block {
                 *
                 * Etat ouvert:
                 * hover = background du x devient blanc et x devient noir
-                * clic =
+                * clic = a completer plus tard car je ne sais pas trop encore
                 */
   transform: rotate(0deg);
   animation: animXIn .2s ease-in-out;
   animation-fill-mode: forwards;
+}
+
+html body .user-infos .close-block:hover {
+  background-color: #494949;
+  border-radius: 50%;
 }
 
 html body .user-infos .close-block:after {
@@ -586,9 +589,9 @@ html body .user-infos .close-block:after {
   right: 0;
   content: "\d7";
   /* use the hex value here... × */
-  font-size: 35px;
+  font-size: 25px;
   color: #FFF;
-  line-height: 32px;
+  line-height: 22px;
   text-align: center;
 }
 
@@ -651,11 +654,11 @@ html body .user-infos.closed .close-block {
   0% {
     display: none;
     opacity: 0;
-    width: 0;
+    height: 0;
   }
   100% {
     opacity: 1;
-    width: 100%;
+    height: 100%;
   }
 }
 
