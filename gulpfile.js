@@ -33,9 +33,9 @@ var templatesToWatch = [
 
 
 /**
-* Load Plugins.
-* Load gulp plugins and assing them semantic names.
-*/
+ * Load Plugins.
+ * Load gulp plugins and assing them semantic names.
+ */
 var gulp            = require('gulp');
 var sass            = require('gulp-sass');
 var autoprefixer    = require('gulp-autoprefixer');
@@ -56,9 +56,9 @@ var del             = require('del');
 
 
 /**
-* Task: custom styles
-* Compiles Sass, Autoprefixes it and Minifies CSS.
-*/
+ * Task: custom styles
+ * Compiles Sass, Autoprefixes it and Minifies CSS.
+ */
 gulp.task('custom-styles', function () {
     gulp.src( customScssSRC )
     .pipe( sass( {
@@ -80,9 +80,9 @@ gulp.task('custom-styles', function () {
 
 
 /**
-* Task: vendor styles
-* Concat(!! 0 concat for the moment) and rename vendor styles
-*/
+ * Task: vendor styles
+ * Concat(!! 0 concat for the moment) and rename vendor styles
+ */
 gulp.task('vendor-styles', function () {
     gulp.src( vendorCssSRC )
     .pipe( concat( vendorCssFile + '.css' ) )
@@ -103,9 +103,9 @@ gulp.task('vendor-styles', function () {
 
 
 /**
-* Task: vendor scripts
-* Concatenate and uglify vendor JS scripts.
-*/
+ * Task: vendor scripts
+ * Concatenate and uglify vendor JS scripts.
+ */
 gulp.task( 'vendor-scripts', function() {
     gulp.src( vendorJsSRC )
     .pipe( concat( vendorJsFile + '.js' ) )
@@ -122,9 +122,9 @@ gulp.task( 'vendor-scripts', function() {
 
 
 /**
-* Task: custom scripts
-* Copy custom scripts to src.
-*/
+ * Task: custom scripts
+ * Copy custom scripts to src.
+ */
 gulp.task( 'custom-scripts', function() {
     gulp.src( customJsSRC )
     .pipe( gulp.dest( jsDest ) )
@@ -133,9 +133,9 @@ gulp.task( 'custom-scripts', function() {
 
 
 /**
-* Task: expose html files
-* Watch templates.
-*/
+ * Task: expose html files
+ * Watch templates.
+ */
 gulp.task( 'watch-templates', function() {
     gulp.src( templatesToWatch ).pipe(livereload());
 });
@@ -143,9 +143,9 @@ gulp.task( 'watch-templates', function() {
 
 
 /**
-* Task: watch
-* Watch modification on scss and js files.
-*/
+ * Task: watch
+ * Watch modification on scss and js files.
+ */
 gulp.task( 'watch', function() {
     livereload.listen({
         host: 'ng.github'
@@ -159,7 +159,7 @@ gulp.task( 'watch', function() {
 
 
 /**
-* Default Tasks.
-* Register all tasks and load all
-*/
+ * Default Tasks.
+ * Register all tasks and load all
+ */
 gulp.task( 'default', [ 'clean', 'custom-styles', 'vendor-styles', 'custom-scripts', 'vendor-scripts', 'watch' ]);
